@@ -15,14 +15,14 @@ export const BookPreview = ({ book }) => {
   if (!book) return <h1>Loading...</h1>
   return (
     <div className="book-preview">
-      <div>
-        <h3>{book.title}</h3>
+      <div className="book-header">
+        <h4>{book.title}</h4>
         <input type="checkbox" name="isWished" id="wish-book" defaultChecked={isChecked} onChange={handleWishBook} />
       </div>
 
       <hr />
 
-      <p>{book.author}</p>
+      <p className="book-auth">{book.author}</p>
       <p className="book-desc">{book.description}</p>
       <p>Rating: {book.rating}</p>
       <p>Price: ${book.price}</p>
