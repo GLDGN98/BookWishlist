@@ -15,24 +15,24 @@ export const BookIndex = () => {
   }, [])
 
   useEffect(() => {
-    bookPaging(1)
+    bookPaging()
 
-  }, [books])
+  }, [books, pageIdx])
 
   async function loadBooks() {
     const books = await bookService.query();
     setBooks(books)
   }
 
-  function bookPaging(diff) {
+  function bookPaging() {
     const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE)
     setBook(...currBook)
-    setPageIdx(pageIdx + diff || 0)
+    // setPageIdx(pageIdx + diff || 0)
   }
 
   function onChangePage(diff) {
     setPageIdx(pageIdx + (diff))
-    bookPaging(diff)
+    bookPaging()
   }
 
   return (

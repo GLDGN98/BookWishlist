@@ -1,6 +1,7 @@
 
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
+import axios from 'axios'
 
 const STORAGE_KEY = 'book'
 
@@ -160,6 +161,11 @@ function getBooks() {
     }
     return books
 }
+
+// async function getBooks() {
+// const res = await axios.get('http://s3.amazonaws.com/sundaysky-mock/books/listOfBooks.json')
+// console.log(res);
+// }
 
 
 // TEST DATA
