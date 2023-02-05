@@ -8,10 +8,10 @@ import {MdOutlineArrowForwardIos} from 'react-icons/md'
 export const BookList = ({ book, onNextPage, onPrevPage }) => {
   return <div className="book-list">
           <BookPreview book={book} />
-          <button onClick={onNextPage}>
+          <button className="next-page-btn" onClick={onNextPage}>
           <MdOutlineArrowBackIosNew/>
           </button>
-          <button onClick={onPrevPage}>
+          <button className="prev-page-btn" onClick={onPrevPage}>
           <MdOutlineArrowForwardIos/>
           </button>
   </div>;

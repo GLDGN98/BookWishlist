@@ -1,1 +1,16 @@
-.book-list {}
+.book-list {
+    max-width: 300px;
+    position: relative;
+    background-color: #e1e1e1;
+
+    .prev-page-btn {
+        position: relative;
+        left: 100%;
+    }
+
+    .next-page-btn {
+        position: relative;
+        right: 100%;
+
+    }
+}

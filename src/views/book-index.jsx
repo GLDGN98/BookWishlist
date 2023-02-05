@@ -4,35 +4,34 @@ import { WishlistBooks } from "../cmps/wishlist-books";
 import { bookService } from "../services/book.service";
 
 export const BookIndex = () => {
-var PAGE_SIZE = 1
-var PAGE_IDX = 0
-
-  const [book, setBook] = useState({})
+  const PAGE_SIZE = 1;
+  const [pageIdx, setPageIdx] = useState(0);
+  const [book, setBook] = useState({});
 
   useEffect(() => {
-    loadBook()
-  }, [])
-
+    loadBook();
+  }, []);
 
   async function loadBook() {
-    const books = await bookService.query()
-    const currBook = books.slice(PAGE_IDX * PAGE_SIZE, (PAGE_IDX + 1) * PAGE_SIZE)
-    setBook(...currBook)
+    const books = await bookService.query();
+    const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE);
+    setBook(...currBook);
   }
 
   function onNextPage() {
-      
+    setPageIdx(pageIdx + 1);
+    loadBook();
   }
 
- function onPrevPage() {
-
+  function onPrevPage() {
+    setPageIdx(pageIdx - 1);
+    loadBook();
   }
 
-  console.log(book)
-
-
-  return <div className="book-index">
-    <BookList onNextPage={onNextPage} onPrevPage={onPrevPage} book={book}  />
-    <WishlistBooks />
-  </div>;
+  return (
+    <div className="book-index">
+      <BookList onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
+      <WishlistBooks />
+    </div>
+  );
 };

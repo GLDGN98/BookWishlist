@@ -1,6 +1,9 @@
 .book-index {
-    background-color: aquamarine;
     display: flex;
+    display: flex;
+    margin: 200px auto;
+    align-items: flex-start;
+
 
     .wishlist-books {
         background-color: red;

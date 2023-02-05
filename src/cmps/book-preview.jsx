@@ -9,6 +9,7 @@ export const BookPreview = ({ book }) => {
     console.log(book.isWished)
   }
 
+  if (!book) return <h1>Loading...</h1>
   return (
     <div className="book-preview">
       <div>
@@ -19,7 +20,7 @@ export const BookPreview = ({ book }) => {
       <hr />
 
       <p>{book.author}</p>
-      <p>{book.description}</p>
+      <p className="book-desc">{book.description}</p>
       <p>Rating: {book.rating}</p>
       <p>Price: ${book.price}</p>
 
