@@ -14,8 +14,6 @@ export const bookService = {
 window.cs = bookService
 
 
-var PAGE_SIZE = 1
-var PAGE_IDX = 0
  
 
 
@@ -31,7 +29,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
     // if (filterBy.price) {
     //     books = books.filter(book => book.price <= filterBy.price)
     // }
-    return books.slice(PAGE_IDX * PAGE_SIZE, (PAGE_IDX + 1) * PAGE_SIZE)
+    return books
 }
 
 function getById(bookId) {

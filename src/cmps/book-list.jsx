@@ -1,15 +1,18 @@
 import React from "react";
 import { BookPreview } from "./book-preview";
+import {MdOutlineArrowBackIosNew} from 'react-icons/md'
+import {MdOutlineArrowForwardIos} from 'react-icons/md'
 
 
-export const BookList = ({ books }) => {
-  return <ul className="book-list">
-    {books?.map(book => {
-      return (
-        <li>
+
+export const BookList = ({ book, onNextPage, onPrevPage }) => {
+  return <div className="book-list">
           <BookPreview book={book} />
-        </li>
-      )
-    })}
-  </ul>;
+          <button onClick={onNextPage}>
+          <MdOutlineArrowBackIosNew/>
+          </button>
+          <button onClick={onPrevPage}>
+          <MdOutlineArrowForwardIos/>
+          </button>
+  </div>;
 };
