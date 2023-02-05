@@ -27,26 +27,22 @@ export const BookIndex = () => {
 
   function bookPaging() {
     const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE)
-    console.log(currBook)
     setBook(...currBook)
   }
 
   function onNextPage() {
     setPageIdx(pageIdx + 1)
-    console.log('next', pageIdx)
 
     bookPaging()
   }
 
   function onPrevPage() {
     setPageIdx(pageIdx - 1)
-    console.log('prev', pageIdx)
     bookPaging()
   }
-  console.log('index', book)
   return (
     <div className="book-index">
-      <BookList onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
+      <BookList setBook={setBook} books={books} setBooks={setBooks} onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
       <WishlistBooks books={books} />
     </div>
   )

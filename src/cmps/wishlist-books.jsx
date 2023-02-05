@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export function WishlistBooks({ books }) {
-
 
     function wishedBooks() {
         return books.filter(book => book.isWished)
@@ -10,7 +9,7 @@ export function WishlistBooks({ books }) {
     return (
         <aside className="wishlist-books">
             <div>{wishedBooks().map(book => (
-                <div>
+                <div key={book._id}>
                     {book.title}
                 </div>
             ))}</div>

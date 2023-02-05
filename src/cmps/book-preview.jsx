@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { bookService } from "../services/book.service";
 
-export const BookPreview = ({ book }) => {
+export const BookPreview = ({ book, setBooks, books }) => {
   const [isChecked, setIsChecked] = useState(book?.isWished || false)
 
   useEffect(() => {
     setIsChecked(book?.isWished || false)
-    console.log('preview', book)
   }, [book])
 
-  function handleWishBook({ target }) {
+  async function handleWishBook({ target }) {
     book.isWished = target.checked
-    bookService.save(book)
-
+    await bookService.save(book)
+    setBooks([...books])
   }
   if (!book) return <h1>Loading...</h1>
   return (
