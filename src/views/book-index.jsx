@@ -14,24 +14,36 @@ export const BookIndex = () => {
     loadBooks()
   }, [])
 
+  useEffect(() => {
+    bookPaging()
+
+  }, [books])
+
   async function loadBooks() {
     const books = await bookService.query();
-    const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE);
 
-    setBook(...currBook)
     setBooks(books)
+  }
+
+  function bookPaging() {
+    const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE)
+    console.log(currBook)
+    setBook(...currBook)
   }
 
   function onNextPage() {
     setPageIdx(pageIdx + 1)
-    loadBooks()
+    console.log('next', pageIdx)
+
+    bookPaging()
   }
 
   function onPrevPage() {
     setPageIdx(pageIdx - 1)
-    loadBooks()
+    console.log('prev', pageIdx)
+    bookPaging()
   }
-
+  console.log('index', book)
   return (
     <div className="book-index">
       <BookList onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />

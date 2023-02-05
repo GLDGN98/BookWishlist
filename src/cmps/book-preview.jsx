@@ -6,6 +6,7 @@ export const BookPreview = ({ book }) => {
 
   useEffect(() => {
     setIsChecked(book?.isWished || false)
+    console.log('preview', book)
   }, [book])
 
   function handleWishBook({ target }) {
@@ -13,7 +14,6 @@ export const BookPreview = ({ book }) => {
     bookService.save(book)
 
   }
-
   if (!book) return <h1>Loading...</h1>
   return (
     <div className="book-preview">
