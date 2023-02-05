@@ -11,7 +11,9 @@ export const BookPreview = ({ book }) => {
   function handleWishBook({ target }) {
     book.isWished = target.checked
     bookService.save(book)
+
   }
+
   if (!book) return <h1>Loading...</h1>
   return (
     <div className="book-preview">
