@@ -34,7 +34,7 @@ export const BookIndex = () => {
 
   return (
     <div className="book-index">
-      <BookList onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
+      <BookList setBook={setBook} books={books} setBooks={setBooks} onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
       <WishlistBooks books={books} />
     </div>
   )
