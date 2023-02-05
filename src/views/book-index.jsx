@@ -31,7 +31,6 @@ export const BookIndex = () => {
   function onChangePage(diff) {
     setPageIdx(pageIdx + (diff))
     bookPaging()
-    bookPaging()
   }
 
   return (

@@ -7,8 +7,6 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 
 export const BookList = ({ pageIdx, book, onChangePage, books, setBooks }) => {
 
-  console.log(pageIdx)
-
   return <div className="book-list">
     <BookPreview books={books} setBooks={setBooks} book={book} />
 

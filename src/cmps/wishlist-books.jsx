@@ -16,17 +16,25 @@ export function WishlistBooks({ books, setBooks }) {
         setBooks([...books]);
     }
 
-    function sortBooks(sortBy) {
-        setSortBy(sortBy);
-        let sortedBooks = [...wishedBooksList];
-        if (sortBy === "title") {
-            sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
-        } else if (sortBy === "price") {
-            sortedBooks.sort((a, b) => b.price - a.price);
-        } else if (sortBy === "rating") {
-            sortedBooks.sort((a, b) => b.rating - a.rating);
+    function sortBooks(sortType) {
+        setSortBy(prevSortBy => {
+            if (prevSortBy === sortType) {
+                return undefined;
+            }
+            return sortType;
+        });
+        
+        if (sortBy) {
+            let sortedBooks = [...wishedBooksList];
+            if (sortBy === "title") {
+                sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
+            } else if (sortBy === "price") {
+                sortedBooks.sort((a, b) => b.price - a.price);
+            } else if (sortBy === "rating") {
+                sortedBooks.sort((a, b) => b.rating - a.rating);
+            }
+            setWishedBooksList(sortedBooks);
         }
-        setWishedBooksList(sortedBooks);
     }
 
     function bookTitleHandle(title) {
@@ -41,7 +49,6 @@ export function WishlistBooks({ books, setBooks }) {
         });
         return Math.floor(total);
     }
-
 
     return (
         <aside className="wishlist-books">
