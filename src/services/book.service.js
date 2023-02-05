@@ -13,7 +13,10 @@ export const BookService = {
 }
 window.cs = BookService
 
-getBooks()
+
+
+
+
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -151,11 +154,13 @@ var bookData = {"books":[
     }
     ]}
 
+    getBooks()
+
 
     function getBooks() {
-        const books = utilService.loadFromStorage(STORAGE_KEY)
+         let books = utilService.loadFromStorage(STORAGE_KEY)
         if (!books || !books.length) {
-            books = utilService.saveToStorage(bookData.books)
+            books = utilService.saveToStorage(STORAGE_KEY, bookData.books)
         }
         return books
         }
