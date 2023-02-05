@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { bookService } from "../services/book.service";
 
 export const BookPreview = ({ book }) => {
-  const [isChecked, setIsChecked] = useState(book.isWished)
+  // if (!book.isWished) book.isWished = false
+  // console.log
+
+  // const [isChecked, setIsChecked] = useState(book?.isWished)
 
   useEffect(() => {
-    setIsChecked(book.isWished)
+    // setIsChecked(book.isWished)
   }, [book])
 
   function handleWishBook({ target }) {
@@ -18,7 +21,7 @@ export const BookPreview = ({ book }) => {
     <div className="book-preview">
       <div>
         <h3>{book.title}</h3>
-        <input type="checkbox" name="isWished" id="wish-book" defaultChecked={isChecked} onChange={handleWishBook} />
+        <input type="checkbox" name="isWished" id="wish-book" onChange={handleWishBook} />
       </div>
 
       <hr />
