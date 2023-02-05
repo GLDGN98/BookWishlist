@@ -1,11 +1,14 @@
-.book-list {
+.book-index {
     background-color: aquamarine;
-    height: 100vh;
     display: flex;
 
     .wishlist-books {
         background-color: red;
         height: 20px;
+        width: 50%;
+    }
+
+    .book-list {
         width: 50%;
     }
 }
