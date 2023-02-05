@@ -4,9 +4,9 @@ import { BookPreview } from "./book-preview";
 
 export const BookList = ({ books }) => {
   return <ul className="book-list">
-    {books?.map(book => {
+    {books?.map((book, idx) => {
       return (
-        <li>
+        <li key={idx}>
           <BookPreview book={book} />
         </li>
       )
