@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BookList } from "../cmps/book-list";
-import { BookService } from "../services/book.service";
+import { bookService } from "../services/book.service";
 
 export const BookIndex = () => {
+
+  const [books, setBooks] = useState([])
+
+useEffect(() => {
+  loadBooks()
+},[])
+
+
+ function loadBooks() {  
+bookService.query().then(setBooks)
+   
+}
+
+
   return <div className="book-index">
-    <BookList />
+    <BookList books={books} />
   </div>;
 };

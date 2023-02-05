@@ -4,14 +4,14 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'book'
 
-export const BookService = {
+export const bookService = {
     query,
     getById,
     save,
     remove,
     getEmptyBook,
 }
-window.cs = BookService
+window.cs = bookService
 
 
 
