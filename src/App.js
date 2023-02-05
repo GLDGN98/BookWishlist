@@ -5,7 +5,7 @@ import './assets/styles/main.scss'
 const App = () => {
   return <div className="app">
     <BookIndex />
-  </div>;
-};
+  </div>
+}
 
 export default App;

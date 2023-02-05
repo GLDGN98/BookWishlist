@@ -5,20 +5,18 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 
 
 
-export const BookList = ({ book, onNextPage, onPrevPage, books, setBooks }) => {
-
-
-  // const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE);
-
-  // setBook(...currBook)
+export const BookList = ({ pageIdx, book, onChangePage, books, setBooks }) => {
 
   return <div className="book-list">
     <BookPreview books={books} setBooks={setBooks} book={book} />
-    <button className="next-page-btn" onClick={onPrevPage}>
+
+    {pageIdx > -1 && <button className="next-page-btn" onClick={() => onChangePage(-1)}>
       <MdOutlineArrowBackIosNew />
-    </button>
-    <button className="prev-page-btn" onClick={onNextPage}>
+    </button>}
+
+    {pageIdx < books.length && <button className="prev-page-btn" onClick={() => onChangePage(1)}>
       <MdOutlineArrowForwardIos />
-    </button>
-  </div>;
-};
+    </button>}
+
+  </div>
+}

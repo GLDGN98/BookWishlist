@@ -15,7 +15,7 @@ export const BookIndex = () => {
   }, [])
 
   useEffect(() => {
-    bookPaging()
+    bookPaging(1)
 
   }, [books])
 
@@ -25,24 +25,20 @@ export const BookIndex = () => {
     setBooks(books)
   }
 
-  function bookPaging() {
+  function bookPaging(diff) {
     const currBook = books.slice(pageIdx * PAGE_SIZE, (pageIdx + 1) * PAGE_SIZE)
     setBook(...currBook)
+    setPageIdx(pageIdx + diff || 0)
   }
 
-  function onNextPage() {
-    setPageIdx(pageIdx + 1)
-
-    bookPaging()
+  function onChangePage(diff) {
+    setPageIdx(pageIdx + (diff))
+    bookPaging(diff)
   }
 
-  function onPrevPage() {
-    setPageIdx(pageIdx - 1)
-    bookPaging()
-  }
   return (
     <div className="book-index">
-      <BookList setBook={setBook} books={books} setBooks={setBooks} onNextPage={onNextPage} onPrevPage={onPrevPage} book={book} />
+      <BookList pageIdx={pageIdx} setBook={setBook} books={books} setBooks={setBooks} onChangePage={onChangePage} book={book} />
       <WishlistBooks books={books} />
     </div>
   )
