@@ -31,7 +31,7 @@ export const BookPreview = ({ book, setBooks, books }) => {
     return starRating
   }
 
-  if (!book) return <h1>No more books to show😥</h1>
+  if (!book) return <h3>No more books to show...</h3>
   return (
     <div className="book-preview">
       <div className="book-header">
