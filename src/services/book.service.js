@@ -14,6 +14,9 @@ export const bookService = {
 window.cs = bookService
 
 
+var PAGE_SIZE = 1
+var PAGE_IDX = 0
+ 
 
 
 
@@ -28,7 +31,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
     // if (filterBy.price) {
     //     books = books.filter(book => book.price <= filterBy.price)
     // }
-    return books
+    return books.slice(PAGE_IDX * PAGE_SIZE, (PAGE_IDX + 1) * PAGE_SIZE)
 }
 
 function getById(bookId) {
@@ -52,21 +55,6 @@ async function save(book) {
     return savedBook
 }
 
-// async function addBookMsg(bookId, txt) {
-//     // Later, this is all done by the backend
-//     const book = await getById(bookId)
-//     if (!book.msgs) book.msgs = []
-
-//     const msg = {
-//         id: utilService.makeId(),
-//         by: userService.getLoggedinUser(),
-//         txt
-//     }
-//     book.msgs.push(msg)
-//     await storageService.put(STORAGE_KEY, book)
-
-//     return msg
-// }
 
 function getEmptyBook() {
     return {
@@ -74,8 +62,6 @@ function getEmptyBook() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
-
-
 
 var bookData = {
     "books": [
@@ -155,9 +141,7 @@ var bookData = {
         }
     ]
 }
-
     getBooks()
-
 
     function getBooks() {
          let books = utilService.loadFromStorage(STORAGE_KEY)
