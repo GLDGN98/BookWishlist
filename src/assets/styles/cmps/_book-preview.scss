@@ -6,4 +6,20 @@
 
     }
 
+    .book-auth {
+        color: #75a19d;
+        font-size: rem(24px);
+    }
+
+    .book-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    p {
+        margin: 0.5em 0;
+    }
+
+
 }

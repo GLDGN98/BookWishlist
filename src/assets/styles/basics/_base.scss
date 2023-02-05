@@ -3,15 +3,15 @@
 }
 
 ::selection {
-    background-color: $clr1;
+    background-color: black;
     color: $clr6;
 }
 
 html {
     font-family: montserrat;
     line-height: 1.6;
-    color: $clr2;
     background-color: #dbdbdb;
+    font-family: Open-Sans;
 }
 
 body {
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: caveat;
+    font-family: Open-Sans;
     margin: 0 0 0.6em;
     line-height: 1;
 }
