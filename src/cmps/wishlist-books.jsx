@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CiSquareRemove } from 'react-icons/ci'
+import { IoMdRemoveCircle } from 'react-icons/io'
 import { bookService } from "../services/book.service";
 
 export function WishlistBooks({ books, setBooks }) {
@@ -77,7 +77,7 @@ export function WishlistBooks({ books, setBooks }) {
                     <li key={book._id}>
                         <span className="orange-badge"></span>
                         {bookTitleHandle(book.title)}
-                        <button className="unwish-btn" onClick={() => unWishBook(book)}><CiSquareRemove /></button>
+                        <button className="unwish-btn" onClick={() => unWishBook(book)}><IoMdRemoveCircle /></button>
                     </li>
                 ))}
             </ul>
