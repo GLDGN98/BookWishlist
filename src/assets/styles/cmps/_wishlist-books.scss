@@ -1,4 +1,20 @@
 .wishlist-books {
+
+
+    .sort-books {
+        padding-left: 2em;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        button {
+            color: #75a19d;
+            color: black;
+            font-family: Open-Sans;
+            width: 25%;
+        }
+    }
+
     ul {
         list-style: none;
         display: flex;
@@ -34,5 +50,10 @@
                 top: 1%;
             }
         }
+    }
+
+    .total-price {
+        text-align: center;
+        color: #75a19d;
     }
 }

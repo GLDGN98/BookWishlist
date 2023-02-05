@@ -31,6 +31,7 @@ export const BookIndex = () => {
   function onChangePage(diff) {
     setPageIdx(pageIdx + (diff))
     bookPaging()
+    bookPaging()
   }
 
   return (
@@ -39,4 +40,5 @@ export const BookIndex = () => {
       <WishlistBooks setBooks={setBooks} books={books} />
     </div>
   )
+
 }
