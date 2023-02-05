@@ -1,0 +1,38 @@
+.wishlist-books {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        justify-content: center;
+
+        li {
+            background-color: #fff;
+            height: 50px;
+            padding: 0 2em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+            .unwish-btn {
+                position: absolute;
+                left: 90%;
+                background: inherit;
+                font-size: 22px;
+                display: flex;
+                align-items: center;
+            }
+
+
+            .orange-badge {
+                position: absolute;
+                background-color: orange;
+                width: 15px;
+                height: 50px;
+                left: 0%;
+                top: 1%;
+            }
+        }
+    }
+}

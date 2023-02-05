@@ -21,7 +21,6 @@ export const BookIndex = () => {
 
   async function loadBooks() {
     const books = await bookService.query();
-
     setBooks(books)
   }
 
@@ -39,7 +38,7 @@ export const BookIndex = () => {
   return (
     <div className="book-index">
       <BookList pageIdx={pageIdx} setBook={setBook} books={books} setBooks={setBooks} onChangePage={onChangePage} book={book} />
-      <WishlistBooks books={books} />
+      <WishlistBooks setBooks={setBooks} books={books} />
     </div>
   )
 }
