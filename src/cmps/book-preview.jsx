@@ -10,11 +10,10 @@ export const BookPreview = ({ book }) => {
 
   function handleWishBook({ target }) {
     book.isWished = target.checked
-    console.log('target.checked', target.checked)
     bookService.save(book)
-    console.log('iswished', book.isWished)
   }
 
+  if (!book) return <h1>Loading...</h1>
   return (
     <div className="book-preview">
       <div>
@@ -25,7 +24,7 @@ export const BookPreview = ({ book }) => {
       <hr />
 
       <p>{book.author}</p>
-      <p>{book.description}</p>
+      <p className="book-desc">{book.description}</p>
       <p>Rating: {book.rating}</p>
       <p>Price: ${book.price}</p>
 

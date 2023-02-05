@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export function WishlistBooks({ books }) {
-    console.log(books)
+    useEffect(() => {
+        console.log(books)
+
+    }, [books])
     return (
         <aside className="wishlist-books">
 
